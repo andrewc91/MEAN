@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit</title>
+  </head>
+  <body>
+    <h1>This is edit page!</h1>
+    <h2>Edit Page for <%= Panda.name %>!</h2>
+
+    <form class="" action="/<%= panda.id %>" method="post">
+      <input type="text" name="name" placeholder="Panda Name">
+      <input type="Number" name="weight" placeholder="Panda Weight">
+      <input type="Number" name="age" placeholder="Panda Age">
+      <input type="submit" value="Edit Panda!">
+    </form>
+  </body>
+</html>

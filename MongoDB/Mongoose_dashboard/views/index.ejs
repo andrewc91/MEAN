@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+  </head>
+  <style>
+    a {
+      text-decoration: none;
+      margin-right: 25px;
+    }
+  </style>
+  <body>
+    <a href="/new">Create New Panda!</a><br><br><br>
+
+    <% for (panda in pandas) { %>
+      <li>Name: <a href="/<%= pandas[panda]._id %>"><%= pandas[panda].name %>
+        <a href="/edit/<%= pandas[panda]._id %>">Edit Panda!</a>
+        <form action="/delete/<%= pandas[panda]._id %>", method='post'>
+          <input type="submit" value="Delete">
+        </form>
+     </li>
+    <% } %>
+  </body>
+</html>
