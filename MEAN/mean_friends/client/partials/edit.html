@@ -1,0 +1,10 @@
+<div ng-controller="friendController">
+  <h1>edit page</h1>
+  <a href="#/">Go Back</a>
+
+  <form>
+    First Name: <input type="text" ng-model="editFriend.fName">
+    Last Name: <input type="text" ng-model="editFriend.lName">
+    <input type="submit" value="Edit" ng-click="update()">
+  </form>
+</div>

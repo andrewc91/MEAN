@@ -1,0 +1,23 @@
+<h1>My Friends</h1>
+<a href="#!/new"><button>Add a New Friend</button></a>
+
+<div ng-controller="friendController">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Show</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in list">
+        <td>{{user.fName}} {{user.lName}} </td>
+        <td><a href="#!/show/{{user._id}}">Show</a></td>
+        <td><a href="#!/edit/{{user._id}}">edit</td>
+        <td><button ng-click="delete(user._id)">delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
