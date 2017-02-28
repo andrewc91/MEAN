@@ -1,0 +1,38 @@
+<div ng-controller="usersController">
+  <div class="container">
+    <h1>Register Here</h1>
+
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" class="form-control" ng-model="newUser.first_name" placeholder="Enter First Name">
+        </div>
+
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" class="form-control" ng-model="newUser.last_name" placeholder="Enter Last Name">
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" class="form-control" ng-model="newUser.email" placeholder="Enter Email">
+        </div>
+
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="form-control" ng-model="newUser.password" placeholder="Enter Password">
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password:</label>
+          <input type="password" class="form-control" ng-model="newUser.confirm" placeholder="Enter Confirm Password">
+          <p ng-show="newUser.confirm !== newUser.password"><span style="color: red">The passwords do not match!</span></p>
+        </div>
+
+        <a href="/" class="btn btn-info">Go Back</a>
+        <input type="submit" class="btn btn-success" value="Register" ng-click="register()">
+      </div>
+    </form>
+  </div>
+</div>
