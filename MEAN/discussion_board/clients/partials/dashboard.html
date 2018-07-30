@@ -1,0 +1,65 @@
+<div ng-controller="dashboardController">
+  <div class="container">
+    <h1>Welcome to Tech-Talk Board {{users.name}}</h1>
+    <a href="#!/dashboard" class="btn btn-primary">Dashboard</a>
+    <a href="/logout" class="btn btn-danger">Log Out</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Topic</th>
+          <th>User</th>
+          <th>Posts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="topic in list | orderBy: 'createdAt': true">
+          <td>{{topic.category}}</td>
+          <td><a href="#!/topic/{{topic._id}}">{{topic.topic}}</a></td>
+          <td><a href="#!/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1>Add a new Topic</h1>
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Topic:</label>
+          <input type="text" class="form-control" placeholder="Enter Topic Here" ng-model="newTopic.topic">
+        </div>
+
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea class="form-control" placeholder="Enter Description Here" style="resize: none" ng-model="newTopic.description"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Category: (Select One)</label>
+          <select ng-model='newTopic.category' class="form-control">
+            <option>HTML</option>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Ruby on Rails</option>
+            <option>C#</option>
+            <option>Java</option>
+            <option>C++</option>
+            <option>MySQL</option>
+            <option>NoSQL</option>
+            <option>MEAN</option>
+            <option>CSS</option>
+            <option>jQuery</option>
+            <option>Swift</option>
+            <option>UX</option>
+            <option>Web Development</option>
+            <option>General</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <input type="submit" class="btn btn-info" value="Submit" ng-click="createTopic()">
+      </div>
+    </form>
+  </div>
+</div>

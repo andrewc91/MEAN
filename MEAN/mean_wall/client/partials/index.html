@@ -1,0 +1,31 @@
+<div ng-controller="userController">
+  <div class="container">
+    <h1>Welcome to MEAN Wall</h1>
+
+    <p style="color: red">{{error.name.message}}</p>
+
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>First Time Here?</label>
+          <input type="text" class="form-control" placeholder="Register Name Here" ng-model="newUser.name">
+        </div>
+        <input type="submit" value="Register" ng-click="create()" class="btn btn-primary">
+      </div>
+    </form>
+
+    <p style="color: red">{{logError}}</p>
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Already Have an Account?</label>
+          <input type="text" class="form-control" placeholder="Login Name Here" ng-model="user.name">
+        </div>
+        <input type="submit" value="Login" ng-click="login()" class="btn btn-primary">
+      </div>
+    </form>
+
+
+
+  </div>
+</div>

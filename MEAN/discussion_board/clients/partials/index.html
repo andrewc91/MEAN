@@ -1,0 +1,31 @@
+<div ng-controller="userController">
+  <div class="container">
+    <h1>Welcome to User Dashboard</h1>
+
+    <p style="color: red; text-indent: 1em;" >{{error.name.message}}</p>
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>First Time Here?</label>
+          <input type="text" class="form-control" placeholder="Register Name Here" ng-model="newUser.name">
+        </div>
+        <input type="submit" value="Register" class="btn btn-info" ng-click="create()">
+      </div>
+    </form>
+
+    <p style="color: red; text-indent: 1em;">{{logError}}</p>
+    <form>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Already Have an Account?</label>
+          <input type="text" class="form-control" placeholder="Login Name Here" ng-model="user.name">
+        </div>
+        <input type="submit" value="Login" class="btn btn-info" ng-click="login()">
+      </div>
+    </form>
+
+
+
+
+  </div>
+</div>

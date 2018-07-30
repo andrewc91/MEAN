@@ -1,0 +1,40 @@
+<div class="container">
+  <div ng-controller="dashboardController">
+    <h4>Currently logged in: {{users.name}}</h4>
+    <a class="btn btn-primary" href="#!/dashboard">Dashboard</a>
+    <a href="/logout" class="btn btn-danger">Log Out</a>
+    <hr>
+
+
+    <div ng-controller="messageController">
+
+      <h2><a href="#!/user/{{list._user._id}}">{{list._user.name}}</a> posted a topic: </h2>
+      <h4 style="text-indent: 2em;">Title: <span style="font-style: italic">{{list.topic}}</span></h4>
+      <h4 style="text-indent: 2em;">Description: <span style="font-style: italic">{{list.description}}</span></h4>
+      <hr>
+
+      <form>
+        <div class="form-group">
+          <label>Post Your Answer Here:</label>
+          <textarea class="form-control" ng-model="newPost.text" placeholder="Enter Message Here" style="resize: none"></textarea>
+        </div>
+        <input style="margin-left: 76.5em" type="submit" class="btn btn-primary" ng-click="createPost()">
+      </form>
+      <hr>
+
+      <div ng-repeat="answer in list.posts | orderBy: 'createdAt':true">
+        <h3><strong><a href="#!/user/{{answer._user._id}}">{{answer._user.name}}: </a></strong><span style="font-style: italics">{{answer.text}}</span></span></h3>
+
+        <form style="margin-left: 2em">
+          <div class="form-group">
+            <label>Add Comment to this Answer</label>
+            <textarea class="form-control" placeholder="Enter Comment Here" ng-model="newComment.text" style="resize: none"></textarea>
+          </div>
+          <input style="margin-left: 74.5em" type="submit" class="btn btn-primary" ng-click="createComment(newComment, answer._id)">
+        </form>
+        <hr>
+      </div>
+
+    </div>
+  </div>
+</div>

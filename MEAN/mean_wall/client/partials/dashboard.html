@@ -1,0 +1,35 @@
+<div ng-controller="wallController">
+  <div class="container">
+    <h1>Welcome {{currentUser.name}}</h1>
+    <a href="/logout" class="btn btn-danger">Log Out</a>
+
+    <hr>
+    <form>
+        <div class="form-group">
+          <label>Post a Message:</label>
+          <textarea class="form-control" ng-model="newMessage.text" placeholder="Enter Message Here" style="resize: none"></textarea>
+        </div>
+          <input style="margin-left: 76.5em" type="submit" class="btn btn-primary" ng-click="createMessage()">
+    </form>
+
+    <div ng-repeat="message in list | orderBy: 'createdAt':true ">
+      <h3><strong>{{message._user.name}} </strong> posted: <span style="font-size:20px">- {{message.createdAt | date: 'MM/dd/yy h:mma'}}</span></h3>
+      <h4>"{{message.text}}"</h4>
+      <div style="margin-left: 5em" ng-repeat="comment in message.comments | orderBy: 'createdAt':true ">
+        <h5><strong>{{comment._user.name}}</strong> commented:</h5>
+        <p>"{{comment.text}}"</p>
+      </div>
+      <div style="margin-left: 5em">
+        <form>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Post a Comment:</label>
+              <textarea class="form-control" placeholder="Enter Comment Here" style="resize: none" ng-model="newComment.text"></textarea>
+            </div>
+          </div>
+          <input style="margin-top: 0.5em; margin-left: 18em" type="submit" value="Comment" class="btn btn-info" ng-click="createComment(newComment, message._id)">
+        </form>
+      </div>
+      <hr>
+  </div>
+</div>
